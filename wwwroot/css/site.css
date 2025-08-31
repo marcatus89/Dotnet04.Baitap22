@@ -1,0 +1,49 @@
+@import url('open-iconic/font/css/open-iconic-bootstrap.min.css');
+
+body {
+
+    background-color: #fdfdfd;
+}
+.sidebar {
+    margin-top:0;
+    padding:0;
+}
+
+/* sidebar */
+.sidebar ul {
+    background-color: #f4e300;
+    color: black;
+    min-height: 100vh;
+    padding: 2rem 1rem;
+    display: flex;
+    flex-direction: column;
+    text-transform: uppercase;
+    justify-content: center;
+    align-items: left;
+    z-index: 100;
+    list-style-type: none;
+    transition: all 0.2s ease-in-out;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.sidebar a {
+    color: #040100;
+    text-decoration: none;
+    font-weight: 600;
+    display: block;
+    margin: 0.7rem 0;
+}
+
+.sidebar a:hover {
+    color: #fff;
+    transform: scale(1.05);
+}
+.main {
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+h1 {
+    color:brown;
+}

@@ -1,0 +1,79 @@
+@page "/album5"
+<PageTitle>KBHOME 5</PageTitle>
+<h1>ALBUM 5 KBHOME TEAM BUILDING 2025</h1>
+<div>
+    <div class="row">
+        <div class="col-6">
+            <img src="Retouch 1/Album5/@imgKB" style="width:100%"alt="" class="image-fluid">
+        </div>
+        <div class="col-6">
+            <button class="btn btn-danger m-2" @onclick="()=>ChangeHinh17()">IMAGE17</button>
+            <button class="btn btn-secondary m-2" @onclick="()=>ChangeHinh18()">IMAGE18</button>
+            <button class="btn btn-dark m-2" @onclick="()=>ChangeHinh19()">IMAGE19</button>
+            <button class="btn btn-primary m-2" @onclick="()=>ChangeHinh20()">IMAGE20</button>
+            <button class="btn btn-warning m-2" @onclick="()=>ChangeHinh21()">IMAGE21</button>
+            <button class="btn btn-light m-2" @onclick="()=>ChangeHinh22()">IMAGE22</button>
+            <br>
+            @foreach (var item in dsHinh)
+            {
+                <button class="btn @getButtonClass(item) m-2" @onclick="()=>ChangeHinh(item)">@item</button>
+            }
+            <br>
+            @foreach (var item in dsHinhDics)
+            {
+                <button class="btn @item.Value m-2" @onclick="()=>ChangeHinhDics(item.Key)">@item.Key</button>
+            }
+
+        </div>
+    </div>
+</div>
+@code {
+    private string imgKB="IMAGE17-KBHOME.jpg";
+    private void ChangeHinh17()
+    {
+        imgKB="IMAGE17-KBHOME.jpg";
+    }
+    private void ChangeHinh18() {
+        imgKB="IMAGE18-KBHOME.jpg";
+    }
+    private void ChangeHinh19() {
+        imgKB="IMAGE19-KBHOME.jpg";
+    }
+    private void ChangeHinh20() {
+        imgKB="IMAGE20-KBHOME.jpg";
+    }
+    private void ChangeHinh21() {
+        imgKB="IMAGE21-KBHOME.jpg";
+    }
+    private void ChangeHinh22() {
+        imgKB="IMAGE22-KBHOME.jpg";
+    }
+    private List<string> dsHinh =new List<string>(){"IMAGE17","IMAGE18","IMAGE19","IMAGE20","IMAGE21","IMAGE22"};
+    private void ChangeHinh(string number)
+    {
+        imgKB=$"{number}"+"-KBHOME.jpg";
+    }
+    private string getButtonClass(string color)
+    {
+        return color switch
+        {
+            "IMAGE17"=>"btn-danger",
+            "IMAGE18"=>"btn-secondary",
+            "IMAGE19"=>"btn-dark",
+            "IMAGE20"=>"btn-primary",
+            "IMAGE21"=>"btn-warning",
+            "IMAGE22"=>"btn-light"           
+        };
+    }
+    private Dictionary<string,string> dsHinhDics= new Dictionary<string, string>() {
+        {"IMAGE17","btn-danger"},
+        {"IMAGE18","btn-secondary"},
+        {"IMAGE19","btn-dark"},
+        {"IMAGE20","btn-primary"},
+        {"IMAGE21","btn-warning"},
+        {"IMAGE22","btn-light"}
+    };
+    private void ChangeHinhDics (string number ) {
+        imgKB=$"{number}"+"-KBHOME.jpg";
+    }
+}

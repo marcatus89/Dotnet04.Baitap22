@@ -1,0 +1,64 @@
+@page "/album6"
+<PageTitle>KBHOME 6</PageTitle>
+<h1>ALBUM 6 KBHOME TEAM BUILDING 2025</h1>  
+<div>
+    <div class="row">
+        <div class="col-6">
+            <img src="Retouch 1/Album6/@imgKB" alt="..." style="width:100%" class="image-fluid"/>
+        </div>
+        <div class="col-6">
+            <button class="btn btn-danger m-2" @onclick="()=>ChangeHinh23()">IMAGE23</button>
+            <button class="btn btn-secondary m-2" @onclick="()=>ChangeHinh24()">IMAGE24</button>
+            <button class="btn btn-dark m-2" @onclick="()=>ChangeHinh25()">IMAGE25</button>
+            <button class="btn btn-primary m-2" @onclick="()=>ChangeHinh26()">IMAGE26</button>
+            <br>
+            @foreach (var item in dsHinh)
+            {
+                <button class="btn @getButtonClass(item) m-2" @onclick="()=>ChangeHinh(item)">@item</button>
+            }
+            <br>
+            @foreach (var item in dsHinhDics)
+            {
+                <button class="btn @item.Value m-2" @onclick="()=>ChangeHinhDics(item.Key)">@item.Key</button>
+            }
+        </div>
+    </div>
+</div>
+@code {
+    private string imgKB="IMAGE23-KBHOME.jpg";
+    private void ChangeHinh23() {
+        imgKB="IMAGE23-KBHOME.jpg";
+    }
+    private void ChangeHinh24() {
+        imgKB="IMAGE24-KBHOME.jpg";
+    }
+    private void ChangeHinh25() {
+        imgKB="IMAGE25-KBHOME.jpg";
+    }
+    private void ChangeHinh26() {
+        imgKB="IMAGE26-KBHOME.jpg";
+    }
+    private List<string> dsHinh= new List<string>() {"IMAGE23","IMAGE24","IMAGE25","IMAGE26"};
+    private void ChangeHinh(string number) {
+        imgKB=$"{number}"+"-KBHOME.jpg";
+    }
+    private string getButtonClass(string color) {
+        return color switch
+        {
+            "IMAGE23"=>"btn-danger",
+            "IMAGE24"=>"btn-secondary",
+            "IMAGE25"=>"btn-dark",
+            "IMAGE26"=>"btn-primary",
+            _=>"btn-light"
+        };
+    }
+    private Dictionary<string,string> dsHinhDics= new Dictionary<string, string>(){
+        {"IMAGE23","btn-danger"},
+        {"IMAGE24","btn-secondary"},
+        {"IMAGE25","btn-dark"},
+        {"IMAGE26","btn-primary"}
+        };
+    private void ChangeHinhDics(string number) {
+        imgKB=$"{number}"+"-KBHOME.jpg";
+    }
+}
